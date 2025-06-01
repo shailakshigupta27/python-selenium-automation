@@ -5,4 +5,12 @@ Feature: Test scenarios for target website
   Scenario: User can view the  cart
     Given Open target.com
     When Click on cart icon
-    Then 
+    Then “Your cart is empty” message is shown
+
+
+  Scenario: User can view the  cart
+    Given Open target.com
+    When Click account drop-down
+    And Click sign in or create account
+    Then  "Enter your email or mobile number to continue" message is shown
+
