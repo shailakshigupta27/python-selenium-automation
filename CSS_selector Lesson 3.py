@@ -30,4 +30,3 @@ driver.find_element(By.CSS_SELECTOR,'[role="button"]')
 
 #buying for work
 driver.find_element(By.CSS_SELECTOR,'span.a-text-bold')
-

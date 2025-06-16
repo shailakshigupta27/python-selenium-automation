@@ -1,0 +1,27 @@
+from selenium.webdriver.common.by import By
+from behave import given, when, then
+from time import sleep
+
+@given('Open target.com')
+def open_target(context):
+    context.driver.get('https://www.target.com/')
+
+
+@given('Open target circle page')
+def open_target(context):
+    context.driver.get('https://www.target.com/circle')
+
+
+@when ('Click on Add to Cart')
+def add_cart(context):
+    context.driver.find_element(By.CSS_SELECTOR, "[id*='addToCartButtonOrTextId']").click()
+    sleep(4)
+
+
+@when ('Again Click on Add to Cart in side navigation')
+def again_add_to_cart(context):
+    context.driver.find_element(By.CSS_SELECTOR, "[data-test*='content-wrapper'] button[id*='addToCartButtonOrTextId']").click()
+
+@when('Click view cart')
+def view_cart(context):
+    context.driver.find_element(By.CSS_SELECTOR, "a[class*='fullWidth__3XX6f styles_ndsButtonSecondary']").click()
