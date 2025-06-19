@@ -8,10 +8,10 @@ from features.steps.Cart_page_steps import message
 
 @when('Click on cart icon')
 def cart(context):
-    context.driver.find_element(By.CSS_SELECTOR, '[aria-label="cart 0 items"]').click()
+    #context.driver.find_element(By.CSS_SELECTOR, '[aria-label="cart 0 items"]').click()
     #sleep(3)
-    context.driver.wait.until(EC.presence_of_element_located(message))
-
+    #context.driver.wait.until(EC.presence_of_element_located(message))
+     context.app.header.cart_icon()
 
 @when('Click account drop-down')
 def account_dropdown(context):

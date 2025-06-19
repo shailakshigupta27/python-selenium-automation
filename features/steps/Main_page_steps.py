@@ -5,7 +5,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @given('Open target.com')
 def open_target(context):
-    context.driver.get('https://www.target.com/')
+    #context.driver.get('https://www.target.com/')
+    context.app.main_page.open_main_page()
+
 
 
 @given('Open target circle page')
