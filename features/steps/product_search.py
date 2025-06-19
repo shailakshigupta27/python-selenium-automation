@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 SEARCH_SUBMIT = (By.CSS_SELECTOR, "button[data-test*='@web/Search/SearchButton']")
 SEARCH_INPUT = (By.ID, 'search')
@@ -9,7 +11,8 @@ SEARCH_INPUT = (By.ID, 'search')
 @when('Click on search icon')
 def click_search_icon(context):
     context.driver.find_element(*SEARCH_SUBMIT).click()
-    sleep(5)
+    context.driver.wait.until(EC.presence_of_element_located(SEARCH_INPUT))
+    #sleep(5)
 
 
 @when('Input {search_word} into search field')

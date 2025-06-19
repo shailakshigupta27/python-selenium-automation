@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support import expected_conditions as EC
 
 @given('Open target.com')
 def open_target(context):
@@ -15,7 +16,8 @@ def open_target(context):
 @when ('Click on Add to Cart')
 def add_cart(context):
     context.driver.find_element(By.CSS_SELECTOR, "[id*='addToCartButtonOrTextId']").click()
-    sleep(4)
+    context.driver.wait.until(EC.visibility_of_element_located(again_add_to_cart))
+    #sleep(4)
 
 
 @when ('Again Click on Add to Cart in side navigation')
